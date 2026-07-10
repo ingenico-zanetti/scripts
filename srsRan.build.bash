@@ -1,5 +1,5 @@
 #!/bin/bash
-ROOTDIR=$PWD
+ROOTDIR=${HOME}
 
 # Build and install srsRAN 4G
 mkdir ~/Src
