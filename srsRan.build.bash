@@ -53,9 +53,7 @@ cd ${ROOTDIR}
 sudo apt-get install nginx -y
 sudo mkdir -p /var/www/zatto.free.fr/html/
 sudo cp zatto.free.fr /etc/nginx/sites-available/
-sudo cd /etc/nginx/sites-enabled/
-sudo ln -sf ../sites-available/zatto.free.fr
-cd -
+sudo ln -sf /etc/nginx/sites-available/zatto.free.fr /etc/nginx/sites-enabled/zatto.free.fr
 
 # Populate the site
 echo "<h1>Welcome to zatto.free.fr</h1>" | sudo tee /var/www/zatto.free.fr/html/index.html >/dev/null
