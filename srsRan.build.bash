@@ -30,9 +30,9 @@ sudo cp server7.py /usr/local/bin
 
 # Install LTE as a service
 cd $SCRIPTDIR
-sudo cp lte_start.sh /usr/loca/bin
-sudo cp enb.sh /usr/loca/bin
-sudo cp epc.sh /usr/loca/bin
+sudo cp lte_start.sh /usr/local/bin
+sudo cp enb.sh /usr/local/bin
+sudo cp epc.sh /usr/local/bin
 sudo chmod +x /usr/local/bin/*.sh
 
 sudo cp lte.service /etc/systemd/system/
@@ -49,7 +49,7 @@ tar jxvf ${ROOTDIR}/creator.tar.bz2
 cd creator
 sudo make install
 
-cd ${ROOTDIR}
+cd ${SCRIPTDIR}
 
 # Use nginx to serve the file, through a virtual host zatto.free.fr
 sudo apt-get install nginx -y
