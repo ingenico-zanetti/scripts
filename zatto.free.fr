@@ -1,0 +1,14 @@
+server {
+    listen 80;
+    listen [::]:80;
+
+    root /var/www/zatto.free.fr/html;
+    index index.html;
+
+    server_name zatto.free.fr;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+
