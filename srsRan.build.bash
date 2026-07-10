@@ -1,5 +1,6 @@
 #!/bin/bash
 ROOTDIR=${HOME}
+SCRIPTDIR=${ROOTDIR}/scripts
 
 # Build and install srsRAN 4G
 mkdir ~/Src
@@ -13,7 +14,7 @@ make -j$(nproc)
 make test
 sudo make install
 sudo srsran_install_configs.sh service
-cd $ROOTDIR
+cd $SCRIPTDIR
 # overwrite some configuration files with ours
 sudo cp -vf enb.conf epc.conf user_db.csv /etc/srsran/
 
@@ -28,13 +29,14 @@ cd ../supersimplehttp
 sudo cp server7.py /usr/local/bin
 
 # Install LTE as a service
+cd $SCRIPTDIR
 sudo cp lte_start.sh /usr/loca/bin
 sudo cp enb.sh /usr/loca/bin
 sudo cp epc.sh /usr/loca/bin
 sudo chmod +x /usr/local/bin/*.sh
 
 sudo cp lte.service /etc/systemd/system/
-sudo systemctl daemon-realod
+sudo systemctl daemon-reload
 sudo systemctl enable lte
 sudo systemctl start lte
 
@@ -57,9 +59,9 @@ sudo ln -sf /etc/nginx/sites-available/zatto.free.fr /etc/nginx/sites-enabled/za
 
 # Populate the site
 echo "<h1>Welcome to zatto.free.fr</h1>" | sudo tee /var/www/zatto.free.fr/html/index.html >/dev/null
-sudo creator 1 > /var/www/zatto.free.fr/html/1M.HTML
-sudo creator 10 > /var/www/zatto.free.fr/html/10M.HTML
-sudo creator 50 > /var/www/zatto.free.fr/html/50M.HTML
-sudo creator 100 > /var/www/zatto.free.fr/html/100M.HTML
-sudo creator 500 > /var/www/zatto.free.fr/html/500M.HTML
+creator 1 | sudo tee /var/www/zatto.free.fr/html/1M.HTML >/dev/null
+creator 10 | sudo tee /var/www/zatto.free.fr/html/10M.HTML >/dev/null
+creator 50 | sudo tee /var/www/zatto.free.fr/html/50M.HTML >/dev/null
+creator 100 | sudo tee /var/www/zatto.free.fr/html/100M.HTML >/dev/null
+creator 500 | sudo tee /var/www/zatto.free.fr/html/500M.HTML >/dev/null
 
