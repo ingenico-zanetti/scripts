@@ -1,0 +1,15 @@
+[Unit]
+Description=Lancement session Screen LTE (ENB et EPC)
+# After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/usr/local/bin
+ExecStart=/usr/local/bin/lte_start.sh
+
+Restart=no
+
+[Install]
+WantedBy=multi-user.target
+
