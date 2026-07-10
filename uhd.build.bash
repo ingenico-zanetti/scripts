@@ -1,7 +1,7 @@
 #!/bin/bash
 mkdir ~/Src
 cd ~/Src
-tar ../jxvf uhd_v4.9.0.0_ingenico.tar.bz2 
+tar jxvf ~/uhd_v4.9.0.0_ingenico.tar.bz2 
 cd uhd/
 cd host/
 mkdir build
