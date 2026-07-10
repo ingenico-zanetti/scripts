@@ -1,7 +1,7 @@
 #!/bin/bash
 mkdir ~/Src
 cd ~/Src
-tar jxvf srsRAN_4G.release_25_10.ingenico.tar.bz2
+tar jxvf ~/srsRAN_4G.release_25_10.ingenico.tar.bz2
 cd srsRAN_4G
 mkdir build
 cd build
