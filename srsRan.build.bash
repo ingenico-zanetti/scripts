@@ -13,6 +13,7 @@ cmake ../
 make -j$(nproc)
 make test
 sudo make install
+sudo ldconfig
 sudo srsran_install_configs.sh service
 cd $SCRIPTDIR
 # overwrite some configuration files with ours
@@ -64,4 +65,6 @@ creator 10 | sudo tee /var/www/zatto.free.fr/html/10M.HTML >/dev/null
 creator 50 | sudo tee /var/www/zatto.free.fr/html/50M.HTML >/dev/null
 creator 100 | sudo tee /var/www/zatto.free.fr/html/100M.HTML >/dev/null
 creator 500 | sudo tee /var/www/zatto.free.fr/html/500M.HTML >/dev/null
+
+sudo systemctl restart nginx
 
